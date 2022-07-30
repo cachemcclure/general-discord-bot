@@ -2,7 +2,6 @@
 import os
 ##from dotenv import load_dotenv
 ##from keep_alive import keep_alive
-import pickle
 import discord
 from discord.ext import commands
 from random import randint
@@ -21,16 +20,16 @@ from pickle import load as pload
 ##TOKEN = os.getenv('DISCORD_TOKEN')
 ##GUILD = os.getenv('DISCORD_GUILD')
 
-creds = pickle.load(open('creds.pkl','rb'))
+creds = pload(open('creds.pkl','rb'))
 TOKEN = creds['TOKEN']
 GUILD = creds['GUILD']
 
 bot = commands.Bot(command_prefix="!", case_insensitive=True)
 
 ## Load data
-monsters = pickle.load(open('resources/all_monster_data.pkl','rb'))
+monsters = pload(open('resources/all_monster_data.pkl','rb'))
 ## items = pickle.load(open('magic-items.pkl','rb'))
-spells = pickle.load(open('resources/spells.pkl','rb'))
+spells = pload(open('resources/spells.pkl','rb'))
 channel_list = ['general','twsnbn-thursday-afternoon','announcements']
 music_list = pd.read_csv('music_meta.csv',delimiter=',')
 domt = pd.read_csv('domt/domt.csv',delimiter=',')
